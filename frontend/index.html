@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PatasHogar — Cada donación salva una vida</title>
+  <meta name="description" content="Conectamos a personas generosas con albergues locales. Tu donación protege a animales que buscan una segunda oportunidad." />
+  <link rel="icon" href="assets/img/logo-mark.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header">
+    <div class="container header__inner">
+      <a class="brand" href="#">
+        <img class="brand__mark" src="assets/img/logo-mark.svg" alt="" width="32" height="32" />
+        <span class="brand__name">PatasHogar</span>
+      </a>
+
+      <nav class="nav" aria-label="Principal">
+        <a class="nav__link nav__link--active" href="#">Inicio</a>
+        <a class="nav__link" href="#">Albergues</a>
+        <a class="nav__link" href="#">Sobre nosotros</a>
+        <a class="nav__link nav__link--cta" href="#">
+          <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          </svg>
+          Dona ahora
+        </a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--ghost" href="#">Iniciar sesión</a>
+        <a class="btn btn--dark" href="#">Registrarse</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <span class="eyebrow eyebrow--green">Adopta · Rescata · Ama</span>
+          <h1 class="hero__title">Cada donación salva<br />una vida</h1>
+          <p class="hero__text">
+            Conectamos a personas generosas con albergues locales. Tu apoyo les da
+            alimento, atención veterinaria y una segunda oportunidad para encontrar un hogar.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn--primary btn--lg" href="#">
+              Donar ahora
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+            <a class="link-arrow" href="#">
+              Conócenos
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <figure class="hero__media">
+          <img src="assets/img/hero-donacion.png" alt="Un perro y un gato abrazados esperando un hogar" width="488" height="448" />
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= DONACIÓN RÁPIDA ================= -->
+    <section class="quick-donate" aria-label="Donación rápida">
+      <div class="container">
+        <div class="donate-bar">
+          <div class="donate-bar__copy">
+            <p class="donate-bar__title">Donación rápida y segura</p>
+            <p class="donate-bar__sub">Realiza tu donación en segundos</p>
+          </div>
+
+          <div class="amounts" role="group" aria-label="Selecciona el monto de tu donación">
+            <button class="amount" type="button">S/5</button>
+            <button class="amount is-selected" type="button" aria-pressed="true">S/10</button>
+            <button class="amount" type="button">S/25</button>
+            <button class="amount" type="button">S/50</button>
+            <button class="amount" type="button">S/100</button>
+            <button class="amount" type="button">Otro</button>
+          </div>
+
+          <button class="btn btn--primary donate-bar__btn" type="button">Donar ahora</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= IMPACTO ================= -->
+    <section class="stats">
+      <div class="container">
+        <span class="eyebrow eyebrow--green eyebrow--center">El valor de tu ayuda</span>
+        <h2 class="section-title section-title--center">Tu impacto en números reales</h2>
+
+        <div class="stats__grid">
+          <article class="stat-card">
+            <span class="icon-badge icon-badge--peach">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </span>
+            <p class="stat-card__number">250</p>
+            <h3 class="stat-card__title">Animales en albergues</h3>
+            <p class="stat-card__text">Perros y gatos que esperan una segunda oportunidad en nuestros albergues aliados.</p>
+          </article>
+
+          <article class="stat-card">
+            <span class="icon-badge icon-badge--green">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                <path d="M9 22V12h6v10" />
+              </svg>
+            </span>
+            <p class="stat-card__number">11</p>
+            <h3 class="stat-card__title">Albergues aliados</h3>
+            <p class="stat-card__text">Organizaciones locales que reciben donaciones y trabajan por el bienestar de los animales.</p>
+          </article>
+
+          <article class="stat-card">
+            <span class="icon-badge icon-badge--peach">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 15h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 17" />
+                <path d="m7 21 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9" />
+                <path d="m2 16 6 6" />
+                <circle cx="16" cy="9" r="2.9" />
+                <circle cx="6" cy="5" r="3" />
+              </svg>
+            </span>
+            <p class="stat-card__number">S/2,800.56</p>
+            <h3 class="stat-card__title">Total recaudado</h3>
+            <p class="stat-card__text">Donaciones destinadas a alimentos, medicinas y mejoras de infraestructura.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ALBERGUES ================= -->
+    <section class="shelters">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow eyebrow--green">Albergues destacados</span>
+            <h2 class="section-title">Tu ayuda es importante</h2>
+          </div>
+          <a class="btn btn--outline" href="#">Ver todos los albergues</a>
+        </div>
+
+        <div class="shelters__grid">
+          <article class="shelter-card">
+            <div class="shelter-card__media">
+              <img src="assets/img/albergue-aphab-ica.png" alt="Perros rescatados en el albergue APHAB Ica" width="356" height="232" />
+            </div>
+            <div class="shelter-card__body">
+              <div class="shelter-card__head">
+                <h3 class="shelter-card__name">APHAB Ica</h3>
+                <span class="tag tag--green">Activo</span>
+              </div>
+              <p class="shelter-card__text">Hogar temporal para perros rescatados.</p>
+              <div class="shelter-card__foot">
+                <span class="shelter-card__place">
+                  <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Ica, Perú
+                </span>
+                <button class="btn btn--soft" type="button">Apoyar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="shelter-card">
+            <div class="shelter-card__media">
+              <img src="assets/img/albergue-patitas-de-apoyo.png" alt="Voluntarias paseando perros del Refugio Patitas de Apoyo" width="356" height="232" />
+            </div>
+            <div class="shelter-card__body">
+              <div class="shelter-card__head">
+                <h3 class="shelter-card__name">Refugio Patitas de Apoyo - Ica</h3>
+                <span class="tag tag--green">Activo</span>
+              </div>
+              <p class="shelter-card__text">Rescate y rehabilitación de animales.</p>
+              <div class="shelter-card__foot">
+                <span class="shelter-card__place">
+                  <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  San Juan Bautista, Ica
+                </span>
+                <button class="btn btn--soft" type="button">Apoyar</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="shelter-card">
+            <div class="shelter-card__media">
+              <img src="assets/img/albergue-san-martin.png" alt="Perros y gatos descansando en el albergue" width="356" height="232" />
+            </div>
+            <div class="shelter-card__body">
+              <div class="shelter-card__head">
+                <h3 class="shelter-card__name">Albergue San Martín</h3>
+                <span class="tag tag--green">Activo</span>
+              </div>
+              <p class="shelter-card__text">Cuidado para perros y gatos rescatados.</p>
+              <div class="shelter-card__foot">
+                <span class="shelter-card__place">
+                  <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
+                  Ate, Lima
+                </span>
+                <button class="btn btn--soft" type="button">Apoyar</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CÓMO FUNCIONA ================= -->
+    <section class="steps">
+      <div class="container">
+        <span class="eyebrow eyebrow--peach eyebrow--center">
+          <svg viewBox="0 0 24 24" width="11" height="11" aria-hidden="true" fill="currentColor">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          </svg>
+          Tu ayuda, paso a paso
+        </span>
+        <h2 class="section-title section-title--center">¿Cómo funciona tu ayuda?</h2>
+        <p class="steps__intro">
+          Donar es muy sencillo y 100% transparente. Sigue estos 3 pasos para
+          conocer y apoyar a los albergues de nuestra comunidad.
+        </p>
+
+        <div class="steps__grid">
+          <article class="step-card">
+            <div class="step-card__head">
+              <span class="step-card__num">01</span>
+              <span class="step-card__tag">Sencillo</span>
+            </div>
+            <span class="step-card__icon step-card__icon--peach">
+              <svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.3-4.3" />
+              </svg>
+            </span>
+            <h3 class="step-card__title">1. Exploración</h3>
+            <p class="step-card__text">
+              Encuentra el albergue que más te inspire. Explora perfiles verificados,
+              conoce sus historias y descubre las necesidades reales de cada refugio
+              de nuestra comunidad.
+            </p>
+            <ul class="step-card__list">
+              <li>
+                <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6" /></svg>
+                Perfiles verificados
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6" /></svg>
+                Historial de cada albergue
+              </li>
+            </ul>
+          </article>
+
+          <article class="step-card step-card--featured">
+            <div class="step-card__head">
+              <span class="step-card__num">02</span>
+              <span class="step-card__tag">Popular</span>
+            </div>
+            <span class="step-card__icon step-card__icon--green">
+              <svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              </svg>
+            </span>
+            <h3 class="step-card__title">2. Elección</h3>
+            <p class="step-card__text">
+              Elige el albergue o la causa que quieres apoyar y selecciona el monto
+              de tu donación. Puedes hacerlo de forma única o mensual, siempre a tu
+              ritmo.
+            </p>
+            <ul class="step-card__list">
+              <li>
+                <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6" /></svg>
+                Donación única o mensual
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6" /></svg>
+                Tú decides el monto
+              </li>
+            </ul>
+          </article>
+
+          <article class="step-card">
+            <div class="step-card__head">
+              <span class="step-card__num">03</span>
+              <span class="step-card__tag">Seguro</span>
+            </div>
+            <span class="step-card__icon step-card__icon--amber">
+              <svg viewBox="0 0 24 24" width="21" height="21" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v10" />
+                <path d="M9.7 9.4h3.9a1.7 1.7 0 0 1 0 3.4h-3.2a1.7 1.7 0 0 0 0 3.4h4.1" />
+              </svg>
+            </span>
+            <h3 class="step-card__title">3. Donar</h3>
+            <p class="step-card__text">
+              Aporta de forma segura y recibe la confirmación de tu donación al
+              instante, junto con el agradecimiento del albergue y el detalle de tu
+              impacto.
+            </p>
+            <ul class="step-card__list">
+              <li>
+                <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6" /></svg>
+                Pago 100% seguro
+              </li>
+              <li>
+                <svg viewBox="0 0 24 24" width="13" height="13" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12 5 5L20 6" /></svg>
+                Recibos de tu donación
+              </li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="brand brand--footer" href="#">
+            <img class="brand__mark" src="assets/img/logo-mark.svg" alt="" width="32" height="32" />
+            <span class="brand__name">PatasHogar</span>
+          </a>
+          <p class="footer__about">
+            Unidos por el bienestar de los animales. Conectamos corazones y creamos
+            hogares llenos de amor.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h4>Explorar</h4>
+          <ul class="footer__links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Albergues</a></li>
+            <li><a href="#">Sobre nosotros</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Contacto</h4>
+          <ul class="footer__links">
+            <li><a class="footer__mail" href="mailto:hola@patashogar.org">hola@patashogar.org</a></li>
+            <li><a href="tel:+51999999999">+51 999 999 999</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <h4>Síguenos</h4>
+          <div class="socials">
+            <a class="social" href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a class="social" href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M17.5 6.5h.01" />
+              </svg>
+            </a>
+            <a class="social" href="#" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true" fill="currentColor">
+                <path d="M16.6 3c.35 2.1 1.75 3.7 3.9 4v3c-1.5.05-2.9-.4-4-1.2v6.2c0 3.35-2.55 5.8-5.75 5.8S5 18.35 5 15.1c0-3.2 2.6-5.7 5.75-5.7.4 0 .8.03 1.15.1v3.1c-.35-.1-.75-.2-1.15-.2-1.5 0-2.7 1.15-2.7 2.65s1.2 2.7 2.7 2.7 2.75-1.1 2.75-2.7V3h3.1Z" />
+              </svg>
+            </a>
+          </div>
+          <a class="btn btn--primary footer__btn" href="#">Donar hoy</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© 2026 PatasHogar. Todos los derechos reservados.</p>
+        <div class="footer__legal">
+          <a href="#">Términos y condiciones</a>
+          <a href="#">Política de privacidad</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
