@@ -1,0 +1,17 @@
+<header class="site-header">
+    <div class="container nav">
+      <a class="brand" routerLink="/" (click)="menuOpen.set(false)"><img src="assets/paw.svg" alt=""/><span>Patas<span class="brand-accent">Hogar</span></span></a>
+      <nav class="nav-links" [class.open]="menuOpen()" aria-label="Navegación principal">
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" (click)="menuOpen.set(false)">Inicio</a>
+        <a routerLink="/albergues" routerLinkActive="active" (click)="menuOpen.set(false)">Albergues</a>
+        <a routerLink="/" fragment="como-funciona" (click)="menuOpen.set(false)">¿Cómo funciona?</a>
+        <a class="mobile-shelter-link" routerLink="/registrar-albergue" routerLinkActive="active" (click)="menuOpen.set(false)">Mi albergue</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-nav-shelter" routerLink="/registrar-albergue" routerLinkActive="nav-current"><span aria-hidden="true">⌂</span> Mi albergue</a>
+        <a class="btn btn-outline login-link" routerLink="/ingresar">Iniciar sesión</a>
+        <button class="btn btn-primary nav-donate" type="button" (click)="donation.open()">Donar ahora <span aria-hidden="true">↗</span></button>
+        <button class="menu-btn" type="button" [attr.aria-expanded]="menuOpen()" aria-label="Alternar menú" (click)="menuOpen.update(v=>!v)">☰</button>
+      </div>
+    </div>
+  </header>

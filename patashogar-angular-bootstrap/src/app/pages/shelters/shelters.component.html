@@ -1,0 +1,38 @@
+<section class="listing-page"><div class="container">
+    <div class="listing-header"><div><span class="eyebrow">Explora y ayuda</span><h1>Albergues <em>aliados</em></h1><p class="small">Conoce sus historias, necesidades y las maneras en que puedes ayudar.</p></div><div class="listing-decoration">♡</div></div>
+    <div class="search-row">
+      <label class="search-input"><span class="visually-hidden">Buscar albergues</span><span class="input-icon">⌕</span><input type="search" placeholder="Buscar por nombre o necesidad..." [ngModel]="search()" (ngModelChange)="search.set($event)" /></label>
+      <label class="filter-select"><span class="visually-hidden">Filtrar por ciudad</span><select [ngModel]="city()" (ngModelChange)="city.set($event)"><option value="">Todas las ciudades</option><option value="Ica">Ica</option><option value="Pisco">Pisco</option><option value="Chincha">Chincha</option></select></label>
+      <a class="btn btn-outline my-shelter-inline" routerLink="/registrar-albergue">⌂ Mi albergue</a>
+    </div>
+    <div class="results-text"><strong>{{filtered().length}}</strong> albergues encontrados <span>· Datos de demostración</span></div>
+    <div class="shelters-layout">
+      <section class="shelter-grid" aria-label="Resultados de albergues">
+        @for(shelter of filtered(); track shelter.id){
+          <article class="card shelter-card filter-card" [class.selected-shelter]="selectedId()===shelter.id" (click)="selectShelter(shelter)" (keydown.enter)="selectShelter(shelter)" tabindex="0" role="button" [attr.aria-pressed]="selectedId()===shelter.id">
+            <div class="card-photo"><img [src]="shelter.image" [alt]="'Imagen ilustrativa de '+shelter.name" loading="lazy" /></div>
+            <div class="body"><div class="meta"><span>⌖ {{shelter.city}}</span><span class="badge">{{shelter.badge}}</span></div>
+              <h3>{{shelter.name}}</h3><p>{{shelter.need}}</p><div class="small fundraising-label">Recaudación demo: S/{{shelter.raised.toLocaleString('es-PE')}}</div>
+              <div class="progress"><span [style.width.%]="percentage(shelter)"></span></div>
+              <div class="card-actions"><span class="small">{{percentage(shelter)}}% de meta</span><button type="button" class="btn btn-outline" (click)="$event.stopPropagation();donation.open(5,shelter.id)">Apoyar ♡</button></div>
+            </div>
+          </article>
+        } @empty {
+          <div class="empty-results"><span>⌕</span><h3>No encontramos albergues</h3><p>Prueba con otro nombre o selecciona una ciudad distinta.</p><button class="btn btn-outline" (click)="search.set('');city.set('')">Limpiar filtros</button></div>
+        }
+      </section>
+      @if(selected(); as shelter){
+        <aside class="card detail-card" aria-label="Detalle del albergue seleccionado">
+          <div class="detail-image-box">@if(imageReady()){<img class="detail-enter-image" [src]="shelter.image" [alt]="'Imagen de '+shelter.name"/>}</div>
+          <div class="badge detail-badge">✦ {{shelter.badge}}</div>
+          <h3 class="typing-title">{{typedTitle()}}<span class="typing-caret" [class.hidden]="!typing()">|</span></h3>
+          <p class="small typing-desc">{{typedDescription()}}</p>
+          <div class="need"><strong>Necesidad principal</strong><div class="typed-need">{{typedNeed()}}</div></div>
+          <div class="detail-funded"><span>Campaña de ejemplo</span><strong>{{percentage(shelter)}}%</strong></div>
+          <div class="progress"><span [style.width.%]="percentage(shelter)"></span></div>
+          <div class="small">S/{{shelter.raised.toLocaleString('es-PE')}} de S/{{shelter.goal.toLocaleString('es-PE')}} (demo)</div>
+          <button type="button" class="btn btn-primary full-width detail-donate" (click)="donation.open(5,shelter.id)">Donar a esta campaña ♡</button>
+        </aside>
+      }
+    </div>
+  </div></section>

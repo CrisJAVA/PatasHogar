@@ -1,0 +1,66 @@
+<section class="hero"><div class="container">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> Refugio · Rescate · Unión</span>
+        <h1>Cada donación <em>salva una vida.</em></h1>
+        <p>Conectamos corazones generosos con albergues locales. Tu aporte puede convertirse en alimento, atención veterinaria y una segunda oportunidad.</p>
+        <div class="hero-ctas"><button type="button" class="btn btn-primary btn-large" (click)="donation.open()">Donar ahora <span>♡</span></button><a routerLink="/albergues" class="btn btn-ghost">Conocer albergues <span>↗</span></a></div>
+        <div class="hero-trust"><span class="trust-mark">♥</span><span>Pequeños gestos, grandes cambios.</span></div>
+      </div>
+      <div class="hero-art">
+        <div class="hero-gallery" aria-label="Imágenes de animales y refugios">
+          @for(image of heroImages; track image.src; let i=$index){
+            <img [src]="image.src" [alt]="image.alt" [class.visible]="i===heroIndex()" [attr.aria-hidden]="i!==heroIndex()" [attr.loading]="i===0?'eager':'lazy'" />
+          }
+        </div>
+        <span class="photo-tag">🐾 Historias que merecen un hogar</span>
+        <div class="hero-dots" aria-label="Indicadores de imágenes">
+          @for(image of heroImages; track image.src;let i=$index){<span [class.on]="i===heroIndex()"></span>}
+        </div>
+      </div>
+    </div>
+    <div class="quick-donate" aria-label="Donación rápida">
+      <div class="quick-intro"><div class="quick-icon">♡</div><div><strong>Una pequeña ayuda, un gran impacto</strong><div class="small">Elige cuánto te gustaría donar</div></div></div>
+      <div class="amounts">
+        @for(amount of amounts; track amount){
+          <button type="button" class="amount liquid-btn" [class.active]="selectedAmount()===amount && !showCustom()" [class.filling]="fillingAmounts().has(amount)" (pointerenter)="animateAmount(amount)" (click)="chooseAmount(amount)" [attr.aria-pressed]="selectedAmount()===amount && !showCustom()"><span>S/{{amount}}</span></button>
+        }
+        <button type="button" class="amount liquid-btn" [class.active]="showCustom()" [class.filling]="fillingAmounts().has(0)" (pointerenter)="animateAmount(0)" (click)="showCustom.set(true)" [attr.aria-pressed]="showCustom()"><span>Otro</span></button>
+      </div>
+      @if(showCustom()){<label class="custom-amount"><span class="sr-only">Monto personalizado en soles</span><input type="number" min="1" max="50000" step="1" [(ngModel)]="customAmount" placeholder="S/ 1+" /></label>}
+      <button type="button" class="btn btn-primary donate-fill" [class.filling]="ctaFilling()" (pointerenter)="animateCta()" (click)="quickDonate()"><span>Donar con un clic</span><span aria-hidden="true">↗</span></button>
+    </div>
+  </div></section>
+
+  <section class="stats-section" id="impacto"><div class="container">
+    <div class="center section-intro"><span class="eyebrow">Impacto transparente</span><h2>Tu impacto en números reales</h2><p class="small">Cifras de ejemplo del diseño original; se actualizarán con datos comprobados desde la API.</p></div>
+    <div class="stats-grid">
+      <article class="card stat"><div class="icon">🐾</div><app-count-up [target]="250" /><span>Animales en albergues</span><p>Amigos de cuatro patas que esperan alimento, cuidados y mucho amor.</p><span class="stat-line"></span></article>
+      <article class="card stat"><div class="icon">⌂</div><app-count-up [target]="11" /><span>Albergues aliados</span><p>Organizaciones locales que trabajan cada día para proteger vidas.</p><span class="stat-line"></span></article>
+      <article class="card stat"><div class="icon">♡</div><app-count-up [target]="2800.56" prefix="S/ " [digits]="2" /><span>Recaudación ilustrativa</span><p>Una muestra de lo que podemos lograr trabajando juntos.</p><span class="stat-line"></span></article>
+    </div>
+  </div></section>
+
+  <section class="featured" id="ayudar"><div class="container">
+    <div class="section-head"><div><span class="eyebrow">Impacta a tu manera</span><h2>Tu ayuda es importante</h2><p class="small">Cada albergue tiene una historia. Desliza y descubre a quién apoyar.</p></div><a class="btn btn-outline" routerLink="/albergues">Ver todos los albergues ↗</a></div>
+    <div class="carousel-wrap">
+      <div class="carousel-rail" #shelterRail tabindex="0" aria-label="Carrusel manual de albergues">
+        @for(shelter of shelters.shelters(); track shelter.id){
+          <article class="card shelter-card featured-card">
+            <div class="card-photo"><img [src]="shelter.image" [alt]="'Fotografía ilustrativa de '+shelter.name" loading="lazy" /></div>
+            <div class="body"><div class="meta"><span>⌖ {{shelter.city}}, Perú</span><span class="badge">{{shelter.badge}}</span></div><h3>{{shelter.name}}</h3><p>{{shelter.need}}</p><div class="card-actions"><span class="small">Conoce su historia</span><button type="button" class="btn btn-outline" (click)="donation.open(5,shelter.id)">Apoyar ♡</button></div></div>
+          </article>
+        }
+      </div>
+      <div class="carousel-controls"><span class="small">Explora más refugios <span aria-hidden="true">→</span></span><div class="carousel-buttons"><button type="button" class="circle-arrow" aria-label="Albergues anteriores" (click)="moveCarousel(-1)">←</button><button type="button" class="circle-arrow" aria-label="Siguientes albergues" (click)="moveCarousel(1)">→</button></div></div>
+    </div>
+  </div></section>
+
+  <section class="how" id="como-funciona"><div class="container">
+    <div class="center"><span class="eyebrow">Más que una donación</span><h2>¿Cómo funciona tu ayuda?</h2><p class="small">Solo necesitas tres pasos para conectar y apoyar.</p></div>
+    <div class="steps">
+      <article class="card step"><div class="step-num">PASO 01</div><div class="step-icon">⌕</div><h3>Exploración</h3><p class="small">Navega por los albergues y conoce sus historias y necesidades.</p></article>
+      <article class="card step"><div class="step-num">PASO 02</div><div class="step-icon">♡</div><h3>Elección</h3><p class="small">Elige el refugio o la campaña que más conecte contigo.</p></article>
+      <article class="card step"><div class="step-num">PASO 03</div><div class="step-icon">◎</div><h3>Donación</h3><p class="small">Próximamente podrás aportar de forma segura y seguir el impacto.</p></article>
+    </div>
+  </div></section>

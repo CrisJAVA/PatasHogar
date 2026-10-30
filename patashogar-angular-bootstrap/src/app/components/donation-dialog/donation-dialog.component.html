@@ -1,0 +1,19 @@
+@if (donation.selected(); as intent) {
+      <div class="modal open" (click)="donation.close()" role="presentation">
+        <section class="modal-card donation-dialog" role="dialog" aria-modal="true" aria-labelledby="donate-heading" (click)="$event.stopPropagation()">
+          <div class="modal-head"><div><span class="eyebrow">Tu aporte importa</span><h2 id="donate-heading" class="dialog-title">Apoya con amor ♡</h2></div><button class="icon-btn" aria-label="Cerrar donación" (click)="donation.close()">✕</button></div>
+          <p class="small">Estás preparando una donación de <strong>S/{{intent.amountPEN}}</strong>@if (getShelterName(intent.shelterId)) { para <strong>{{getShelterName(intent.shelterId)}}</strong> }.</p>
+          <div class="pay-methods" role="group" aria-label="Método de pago">
+            <button type="button" [class.chosen]="intent.method==='YAPE'" (click)="donation.setMethod('YAPE')">◉ Yape</button>
+            <button type="button" [class.chosen]="intent.method==='CARD'" (click)="donation.setMethod('CARD')">▤ Débito / crédito</button>
+          </div>
+          @if (intent.method === 'YAPE') {
+            <div class="payment-placeholder"><div class="placeholder-symbol">▦</div><strong>Yape en preparación</strong><p>El QR y la cuenta receptora se mostrarán aquí después de verificar al beneficiario y conectar el backend.</p></div>
+          } @else {
+            <div class="payment-placeholder"><div class="placeholder-symbol">▤</div><strong>Pago con tarjeta seguro</strong><p>El pago abrirá el checkout alojado de una pasarela autorizada. PatasHogar no almacenará números de tarjeta ni CVV.</p></div>
+          }
+          <div class="security-hint">🔒 No introduzcas datos bancarios todavía. Este prototipo no procesa ni cobra donaciones.</div>
+          <button type="button" class="btn btn-primary full-width" disabled title="Disponible al conectar pagos reales">Próximamente: continuar con el pago</button>
+        </section>
+      </div>
+    }

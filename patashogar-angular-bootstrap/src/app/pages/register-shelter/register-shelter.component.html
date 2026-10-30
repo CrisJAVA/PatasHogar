@@ -1,0 +1,32 @@
+<div class="form-page"><div class="register-wrap">
+    <a class="back-link" routerLink="/albergues">← Volver a albergues</a>
+    <div class="card register-card">
+      <section class="register-copy"><div class="brand"><img src="assets/paw.svg" alt=""/><span>PatasHogar</span></div><span class="eyebrow">Albergues aliados</span><h2>Suma tu albergue a nuestra red de ayuda</h2><p>Comparte tu historia y permítenos conocer el trabajo que haces por los animales.</p>
+        <div class="benefit"><span>✓</span> Visibilidad para tus necesidades</div><div class="benefit"><span>✓</span> Proceso de verificación</div><div class="benefit"><span>✓</span> Futuro seguimiento de donaciones</div>
+        <div class="register-photo"><img src="assets/shelter-6.webp" alt="Animales en refugio" /></div>
+      </section>
+      <section class="register-form">
+        @if(receipt(); as submitted){
+          <div class="receipt" role="status"><div class="receipt-mark">✓</div><span class="eyebrow">Solicitud registrada en la demostración</span><h2>¡Gracias por querer sumarte!</h2><p>La solicitud <strong>{{submitted.id}}</strong> quedó <strong>en revisión</strong> en esta sesión de prueba.</p>
+            <div class="receipt-steps"><div><strong>01 · Revisión administrativa</strong><p>El plazo previsto para evaluar solicitudes reales será de un máximo de 24 horas.</p></div><div><strong>02 · Comunicación por correo</strong><p>Al conectar el backend, se enviará confirmación y se notificará la aprobación o el rechazo a <strong>{{submitted.email}}</strong>.</p></div><div><strong>03 · Verificación presencial</strong><p>De ser aprobada, se coordinará por correo una visita para certificar la existencia del refugio.</p></div></div>
+            <p class="small disclaimer">Modo demostración: todavía no se ha enviado ningún correo ni se han almacenado los datos en un servidor.</p>
+            <div class="receipt-buttons"><a routerLink="/albergues" class="btn btn-outline">Volver a albergues</a><a routerLink="/demo/admin" class="btn btn-primary">Ver revisión en panel demo ↗</a></div>
+          </div>
+        } @else {
+          <span class="eyebrow">Tu próximo paso</span><h2>Registra tu albergue</h2><p class="small">Completa los datos para solicitar una evaluación de Patas Hogar.</p>
+          <form class="form-grid" [formGroup]="form" (ngSubmit)="submit()">
+            <div class="full"><label for="shelterName">Nombre del albergue *</label><input id="shelterName" formControlName="shelterName" placeholder="Ej. Refugio Patitas de Amor" /><small class="error" [class.visible]="invalid('shelterName')">Ingresa al menos 3 caracteres.</small></div>
+            <div class="full"><label for="address">Dirección o ubicación *</label><input id="address" formControlName="address" placeholder="Ej. Ica, San Juan Bautista" /><small class="error" [class.visible]="invalid('address')">Indica la ubicación.</small></div>
+            <div class="full"><label for="contactName">Responsable o padrino del albergue *</label><input id="contactName" formControlName="contactName" placeholder="Nombre y apellidos" /><small class="error" [class.visible]="invalid('contactName')">Ingresa el nombre del responsable.</small></div>
+            <div><label for="phone">Número de contacto *</label><input id="phone" formControlName="phone" type="tel" placeholder="+51 999 999 999" /><small class="error" [class.visible]="invalid('phone')">Ingresa un teléfono válido.</small></div>
+            <div><label for="animalCount">Total de animales *</label><input id="animalCount" formControlName="animalCount" type="number" min="1" /><small class="error" [class.visible]="invalid('animalCount')">Mínimo un animal.</small></div>
+            <div class="full"><label for="email">Correo electrónico *</label><input id="email" formControlName="email" type="email" autocomplete="email" placeholder="contacto@albergue.org" /><small class="error" [class.visible]="invalid('email')">Ingresa un correo válido.</small></div>
+            <div class="full"><label for="needs">Necesidades principales *</label><textarea id="needs" formControlName="needs" rows="4" placeholder="Alimento, medicinas, vacunas, esterilizaciones..."></textarea><small class="error" [class.visible]="invalid('needs')">Describe al menos una necesidad.</small></div>
+            <label class="full checkbox consent"><input type="checkbox" formControlName="consent" /><span>Confirmo que la información es verdadera y acepto la evaluación y posterior verificación presencial. *</span></label>
+            <div class="full"><button class="btn btn-primary full-width" type="submit">Enviar solicitud de albergue ↗</button></div>
+            <p class="full small disclaimer">En modo demo, la información solo existe durante esta sesión de la aplicación. No se envía a terceros ni se remite correo electrónico.</p>
+          </form>
+        }
+      </section>
+    </div>
+  </div></div>

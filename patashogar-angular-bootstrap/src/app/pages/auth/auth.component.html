@@ -1,0 +1,14 @@
+<div class="auth-page"><div class="auth-shell"><a class="back-link" routerLink="/">← Volver a PatasHogar</a>
+    <div class="auth-layout"><section class="auth-copy"><div class="eyebrow">Hagamos el bien juntos</div><h1>Cada conexión <em>salva una vida.</em></h1><p>Próximamente tendrás tu cuenta para apoyar refugios, gestionar donaciones y seguir su impacto.</p><div class="metric"><strong>♡ Una comunidad que cuida</strong><div class="small">Tu ayuda puede cambiar historias.</div></div><img class="auth-image" src="assets/shelter-3.webp" alt="Mascota en refugio" /></section>
+      <section class="card auth-card"><div class="center"><img src="assets/paw.svg" alt="" class="auth-logo"/><h2>{{mode()==='login'?'¡Hola de nuevo!':'Únete a PatasHogar'}}</h2><p class="small">Bienvenido a PatasHogar</p></div>
+        <div class="auth-tabs"><button type="button" class="auth-tab" [class.active]="mode()==='login'" (click)="mode.set('login')">Iniciar sesión</button><button type="button" class="auth-tab" [class.active]="mode()==='register'" (click)="mode.set('register')">Registrarse</button></div>
+        <form [formGroup]="form" (ngSubmit)="submit()">
+          @if(mode()==='register'){<div class="form-group"><label for="fullName">Nombre completo</label><input id="fullName" formControlName="name" autocomplete="name" placeholder="Tu nombre" /></div>}
+          <div class="form-group"><label for="loginEmail">Correo</label><input id="loginEmail" formControlName="email" type="email" autocomplete="email" placeholder="correo@ejemplo.com" /></div>
+          <div class="form-group"><label for="loginPassword">Contraseña</label><input id="loginPassword" formControlName="password" type="password" autocomplete="current-password" placeholder="••••••••" /></div>
+          <button class="btn btn-primary full-width" type="submit">{{mode()==='login'?'Continuar':'Crear cuenta'}} ↗</button>
+        </form>
+        <div class="auth-demo-note"><strong>Acceso todavía no habilitado</strong><p>El registro, la validación de credenciales y los roles dependerán de Spring Security. No almacenamos contraseñas en el frontend.</p></div>
+        <div class="demo-links"><a routerLink="/demo/albergue">Ver panel albergue ↗</a><a routerLink="/demo/admin">Ver panel administrador ↗</a></div>
+      </section></div>
+  </div></div>

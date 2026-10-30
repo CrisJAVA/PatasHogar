@@ -1,0 +1,5 @@
+<app-header />
+    <main><router-outlet /></main>
+    <app-footer />
+    <app-donation-dialog />
+    @if (notice.message()) { <div class="toast show" role="status">{{notice.message()}}</div> }

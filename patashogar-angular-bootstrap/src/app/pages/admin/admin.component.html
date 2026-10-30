@@ -1,0 +1,18 @@
+<section class="dashboard-page"><div class="container">
+    <div class="dash-head"><div><span class="eyebrow">Backoffice · Vista de demostración</span><h1>Panel de <em>administración</em></h1><p>Revisión de solicitudes de albergues. Esta pantalla aún no está protegida por autenticación real.</p></div><a routerLink="/registrar-albergue" class="btn btn-outline">Enviar solicitud de prueba ↗</a></div>
+    <div class="dash-stat-row"><div class="card dash-stat"><strong>{{applications.applications().length}}</strong><span>Solicitudes recibidas (esta sesión)</span></div><div class="card dash-stat"><strong>{{count('PENDING')}}</strong><span>En revisión</span></div><div class="card dash-stat"><strong>{{count('APPROVED')}}</strong><span>Aprobadas</span></div><div class="card dash-stat"><strong>{{count('REJECTED')}}</strong><span>Rechazadas</span></div></div>
+    <div class="dash-section-head"><h2>Solicitudes de incorporación</h2><span class="small">Solo memoria local · No se envían correos</span></div>
+    @for(application of applications.applications(); track application.id){
+      <article class="card application-card"><div class="application-top"><div><span class="small">{{application.id}} · {{application.createdAt.slice(0,10)}}</span><h3>{{application.shelterName}}</h3></div><span class="status-chip" [class.approved]="application.status==='APPROVED'" [class.rejected]="application.status==='REJECTED'">{{statusText(application.status)}}</span></div>
+        <div class="application-data"><div><strong>Responsable</strong><span>{{application.contactName}}</span></div><div><strong>Ubicación</strong><span>{{application.address}}</span></div><div><strong>Contacto</strong><span>{{application.phone}}</span></div><div><strong>Correo</strong><span>{{application.email}}</span></div><div><strong>Animales</strong><span>{{application.animalCount}}</span></div><div><strong>Necesidades</strong><span>{{application.needs}}</span></div></div>
+        @if(application.status==='PENDING'){
+          <div class="admin-actions"><label class="admin-note"><span>Observación o motivo del rechazo</span><input [ngModel]="notes()[application.id] || ''" (ngModelChange)="setNote(application.id,$event)" placeholder="Observaciones de la evaluación" /></label><div><button class="btn btn-outline" (click)="review(application.id,'REJECTED')">Rechazar</button><button class="btn btn-primary" (click)="review(application.id,'APPROVED')">Aprobar y coordinar visita</button></div></div>
+        } @else {<p class="small">Decisión simulada: {{application.decisionNote}}. La notificación por correo está pendiente de backend.</p>}
+      </article>
+    } @empty {
+      <div class="card empty-admin"><span>⌂</span><h3>Aún no hay solicitudes de prueba</h3><p>Registra un albergue para visualizar y evaluar la solicitud en este panel.</p><a routerLink="/registrar-albergue" class="btn btn-primary">Registrar albergue demo ↗</a></div>
+    }
+    <div class="card mail-events"><h3>Eventos de correo previstos</h3><p class="small">El frontend registra eventos de demostración. En producción deben generarse y enviarse en el backend.</p>
+      @for(item of applications.notificationQueue(); track $index){<div class="mail-row"><span>✉</span><span>{{item.applicationId}} · {{item.to}}</span><strong>{{statusText(item.status)}}</strong></div>} @empty {<p class="small">Sin notificaciones simuladas.</p>}
+    </div>
+  </div></section>
